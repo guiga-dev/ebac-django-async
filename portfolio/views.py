@@ -9,5 +9,8 @@ async def calcular(numero):
     return resultado
 
 async def calculos(request):
+    for contador in range(1, 11):
+        print(f"Contador: {contador}")
+        await asyncio.sleep(0.1)
     resultados = await asyncio.gather(*(calcular(numero) for numero in range(1, 4)))
     return JsonResponse({"resultados": resultados})
